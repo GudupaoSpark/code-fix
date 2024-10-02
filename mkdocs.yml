@@ -1,6 +1,8 @@
 site_name: Code fix
 nav:
     - Home: index.md
+    - Npm :
+      - ERR! Error:EACCES: Npm/npm-ERR-Error-EACCES
 
 repo_url: https://github.com/GudupaoSpark/code-fix
 repo_name: Github Repo
