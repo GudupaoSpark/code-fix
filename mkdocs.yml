@@ -1,7 +1,6 @@
 site_name: Code fix
 nav:
     - Home: index.md
-    - About: about.md
 
 repo_url: https://github.com/GudupaoSpark/code-fix
 repo_name: Github Repo
@@ -29,8 +28,8 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
   language: zh
-  logo: cod-fix-logo2.svg
-  favicon: cod-fix-logo2.svg
+  logo: cod-fix-logo23.png
+  favicon: cod-fix-logo23.png
 extra:
   alternate:
     - name: English
