@@ -1,9 +1,9 @@
 site_name: Code fix
 nav:
-    - Home: index.md
-    - Npm :
-      - ERR! Error:EACCES: Npm/npm-ERR-Error-EACCES
-
+    - 主页: index.md
+    - Npm: 
+      - ERR! Error:EACCES: Npm/npm-ERR-Error-EACCES.md
+      - ERR! ENOENT: Npm/ERR-ENOENT.md
 repo_url: https://github.com/GudupaoSpark/code-fix
 repo_name: Github Repo
 
@@ -32,8 +32,8 @@ theme:
   icon:
     repo: fontawesome/brands/github
   language: zh
-  logo: cod-fix-logo2.svg
-  favicon: cod-fix-logo2.svg
+  logo: cod-fix-logo23.svg
+  favicon: cod-fix-logo23.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky
