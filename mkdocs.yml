@@ -33,8 +33,9 @@ theme:
   language: zh
   logo: cod-fix-logo2.svg
   favicon: cod-fix-logo2.svg
-features: 
+  features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - content.code.copy
 markdown_extensions:
   - pymdownx.highlight:
