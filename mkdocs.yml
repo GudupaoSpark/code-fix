@@ -4,6 +4,7 @@ nav:
     - Npm: 
       - ERR! Error:EACCES: Npm/npm-ERR-Error-EACCES.md
       - ERR! ENOENT: Npm/ERR-ENOENT.md
+      - ERR! network timeout: Npm/ERR-network-timeout.md
 repo_url: https://github.com/GudupaoSpark/code-fix
 repo_name: Github Repo
 
