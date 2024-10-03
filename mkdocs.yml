@@ -6,6 +6,7 @@ repo_name: Github Repo
 plugins:
   - search
   - include_dir_to_nav
+  - git-committers
   - git-committers:
       repository: GudupaoSpark/code-fix
       
