@@ -7,6 +7,9 @@ plugins:
   - search
   - include_dir_to_nav
 
+extra_javascript:
+  - 'js/baidu-tongji.js'
+
 
 theme:
   name: material
