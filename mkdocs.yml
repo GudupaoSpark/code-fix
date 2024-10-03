@@ -8,6 +8,11 @@ nav:
 repo_url: https://github.com/GudupaoSpark/code-fix
 repo_name: Github Repo
 
+plugins:
+  - search
+  - include_dir_to_nav
+
+
 theme:
   name: material
   palette:
