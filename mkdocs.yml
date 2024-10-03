@@ -12,6 +12,7 @@ extra_javascript:
 
 
 theme:
+  custom_dir: overrides
   name: material
   palette:
     # Palette toggle for automatic mode
