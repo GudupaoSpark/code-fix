@@ -20,7 +20,7 @@ jobs:
       - name: 删除特定的 git-committers 配置
         run: |
           # 使用 sed 命令删除包含特定 repository 和 branch 的 git-committers 配置
-          sed -i '/- git-committers:/,/^      branch: main$/d' mkdocs.yml
+          sed -i 's/git-committers:/bak-git-committers:/' mkdocs.yml
       
       - name: 检出 PR 修改的部分
         run: |
