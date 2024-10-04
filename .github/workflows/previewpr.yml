@@ -16,7 +16,12 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 0
-
+          
+      - name: 删除特定的 git-committers 配置
+        run: |
+          # 使用 sed 命令删除包含特定 repository 和 branch 的 git-committers 配置
+          sed -i '/- git-committers:/,/^      branch: main$/d' mkdocs.yml
+      
       - name: 检出 PR 修改的部分
         run: |
           git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge
