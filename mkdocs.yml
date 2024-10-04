@@ -6,6 +6,9 @@ repo_name: Github Repo
 plugins:
   - search
   - include_dir_to_nav
+  - git-committers:
+      repository: GudupaoSpark/code-fix
+      branch: main
 
       
 extra_javascript:
