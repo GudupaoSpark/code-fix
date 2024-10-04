@@ -34,7 +34,7 @@ jobs:
           cache: 'pip'
 
       - name: Install MkDocs and MkDocs Material
-        run: pip install mkdocs-material mkdocs-include-dir-to-nav mkdocs-git-committers-plugin-2
+        run: pip install -r requirements.txt
 
       - name: Build site with MkDocs
         run: mkdocs build
