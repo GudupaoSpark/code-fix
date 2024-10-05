@@ -1,0 +1,45 @@
+name: Docs Changes Checker
+
+on: [pull_request]
+
+jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check for changes outside /docs/
+      id: changes
+      run: |
+        # 获取所有更改的文件
+        CHANGED_FILES=$(git diff --name-only HEAD~1)
+        # 检查是否有更改的文件不在/docs/目录下
+        echo "更改的文件列表:"
+        echo "$CHANGED_FILES"
+        if echo "$CHANGED_FILES" | grep -vE '^docs/' ; then
+          echo "存在不在/docs/目录下的更改文件。"
+          echo "::set-output name=changes::true"
+        else
+          echo "::set-output name=changes::false"
+        fi
+
+    - name: 如果更改了/docs/目录以外的文件，则关闭Pull Request
+      if: steps.changes.outputs.changes == 'true'
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.pulls.createReview({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number,
+            event: 'REQUEST_CHANGES',
+            body: '此拉取请求包含了`/docs/`目录之外的更改。请仅限于在`/docs/`目录中进行更改。'
+          });
+          github.pulls.update({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number,
+            state: 'closed'
+          });
