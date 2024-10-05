@@ -1,47 +1,29 @@
-name: Docs Changes Checker
+name: Check PR for non-docs files
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  check-changes:
+  check-docs-only:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Check for changes outside /docs/
-      id: changes
+    - name: Check modified files
       run: |
-        # 获取当前PR与目标分支之间的更改文件列表
-        CHANGED_FILES=$(git diff --name-only${{ github.base_ref }})
-        # 输出更改的文件列表以供调试
-        echo "更改的文件列表:"
-        echo "$CHANGED_FILES"
-        # 检查是否有更改的文件不在/docs/目录下
-        if echo "$CHANGED_FILES" | grep -vE '^docs/' ; then
-          echo "存在不在/docs/目录下的更改文件。"
-          echo "::set-output name=changes::true"
+        # 获取修改的文件列表
+        MODIFIED_FILES=$(git diff --name-only origin/main)
+        # 检查是否有非 /docs/ 目录的文件被修改
+        if echo "$MODIFIED_FILES" | grep -qvE '^docs/'; then
+          echo "Detected non-docs files changed!"
+          # 提醒提交者
+          gh pr comment "$GITHUB_REF" -b "⚠️ PR contains changes outside of the /docs/ directory. Please limit your changes to the /docs/ folder."
+          # 关闭 PR
+          gh pr close "$GITHUB_REF" -r "PR contains changes outside of /docs/ directory."
         else
-          echo "::set-output name=changes::false"
+          echo "Only /docs/ files were modified."
         fi
-
-    - name: 如果更改了/docs/目录以外的文件，则请求更改并关闭Pull Request
-      if: steps.changes.outputs.changes == 'true'
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          github.pulls.createReview({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: context.issue.number,
-            event: 'REQUEST_CHANGES',
-            body: '此拉取请求包含了`/docs/`目录之外的更改。请仅限于在`/docs/`目录中进行更改。'
-          });
-          # 通常GitHub不允许直接关闭他人创建的PR，以下代码可能不会成功执行
-          github.pulls.update({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: context.issue.number,
-            state: 'closed'
-          });
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
