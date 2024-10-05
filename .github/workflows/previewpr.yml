@@ -16,8 +16,8 @@ jobs:
 
       - name: 检出 PR 修改的部分
         run: |
-          git fetch origin +refs/pull/${{ github.event.pull_request.number }}/merge
-          git checkout -qf FETCH_HEAD
+          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-${{ github.event.pull_request.number }}
+          git checkout pr-${{ github.event.pull_request.number }}
 
       # 检查PR是否只修改了docs文件夹
       - name: 检查文件更改
