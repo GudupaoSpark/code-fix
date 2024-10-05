@@ -1,7 +1,7 @@
-function toast(text, time) {
+function toast() {
     let toast = document.getElementById('toast');
     let toast_box = document.getElementsByClassName('toast_box')[0];
-    toast.innerHTML = text;
+    toast.innerHTML = "复制成功";
     toast_box.style.animation = 'show 1.5s'
     toast_box.style.display = 'inline-block';
 	setTimeout(function(){
@@ -9,7 +9,7 @@ function toast(text, time) {
 		setTimeout(function(){
 			toast_box.style.display = 'none';
 		}, 1400)
-	}, time)   
+	}, 3000)   
 }
 
 
@@ -21,8 +21,8 @@ function copyToClip(content, message) {
     document.execCommand("copy"); 
     document.body.removeChild(aux);
     if (message == null) {
-        toast("复制成功", 3000);
+        toast();
     } else{
-        toast(message, 3000);
+        toast();
     }
 }
