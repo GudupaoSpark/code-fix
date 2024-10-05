@@ -16,7 +16,7 @@ jobs:
     - name: Check modified files
       run: |
         # 获取当前 PR 的 base 分支
-        BASE_BRANCH=$(echo "${{ github.event.pull_request.base.ref }}")
+        BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
         # 拉取最新的更改
         git fetch origin $BASE_BRANCH
 
@@ -25,10 +25,14 @@ jobs:
         # 检查是否有非 /docs/ 目录的文件被修改
         if echo "$MODIFIED_FILES" | grep -qvE '^docs/'; then
           echo "检测到非 docs 目录的文件被修改！"
+          
+          # 获取当前 PR 的编号
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+
           # 提醒提交者
-          gh pr comment "$GITHUB_REF" -b "⚠️ 该 PR 包含了除 /docs/ 目录以外的更改，请将修改限制在 /docs/ 文件夹内。"
+          gh pr comment "$PR_NUMBER" -b "⚠️ 该 PR 包含了除 /docs/ 目录以外的更改，请将修改限制在 /docs/ 文件夹内。"
           # 关闭 PR
-          gh pr close "$GITHUB_REF" -r "PR 包含了除 /docs/ 目录以外的更改。"
+          gh pr close "$PR_NUMBER" -r "PR 包含了除 /docs/ 目录以外的更改。"
         else
           echo "仅修改了 /docs/ 目录下的文件。"
         fi
