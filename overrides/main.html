@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<a href="https://github.com/GudupaoSpark/code-fix/blob/main/docs/{{ page.url.strip("/") }}.md">在 GitHub 上编辑此页面</a>
+<a href="https://github.com/GudupaoSpark/code-fix/blob/main/docs/{{ "index" if page.url.strip("/")=="" else page.url.strip("/") }}.md">在 GitHub 上编辑此页面</a>
 {{ super() }}
 <script src="https://giscus.app/client.js"
         data-repo="GudupaoSpark/code-fix"
