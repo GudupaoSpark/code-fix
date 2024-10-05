@@ -41,7 +41,7 @@ jobs:
         with:
           script: |
             const prNumber = context.payload.pull_request.number;
-            const comment = 'PR已自动关闭，因为检测到对`docs`文件夹以外的文件进行了修改。';
+            const comment = '⚠️ PR已自动关闭，因为检测到对`docs`文件夹以外的文件进行了修改。';
             github.rest.issues.createComment({
               issue_number: prNumber,
               owner: context.repo.owner,
@@ -93,7 +93,7 @@ jobs:
           script: |
             const prNumber = context.payload.pull_request.number;
             const previewUrl = `${{ steps.deploy.outputs.url }}`;
-            const comment = `🚀 预览部署完成！ 访问链接: ${previewUrl}`;
+            const comment = `🚀 预览部署完成！访问链接: ${previewUrl}\nGudupao 不为此内容负责！`;
             github.rest.issues.createComment({
               issue_number: prNumber,
               owner: context.repo.owner,
