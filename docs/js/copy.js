@@ -21,8 +21,8 @@ function copyToClip(content, message) {
     document.execCommand("copy"); 
     document.body.removeChild(aux);
     if (message == null) {
-        toast("复制成功"，3000);
+        toast("复制成功", 3000);
     } else{
-        toast(message，3000);
+        toast(message, 3000);
     }
 }
