@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<a href="https://github.com/GudupaoSpark/code-fix/blob/main{{ page.url }}">在 GitHub 上编辑此页面</a>
 {{ super() }}
 <script src="https://giscus.app/client.js"
         data-repo="GudupaoSpark/code-fix"
@@ -16,5 +17,4 @@
         crossorigin="anonymous"
         async>
 </script>
-<a href="https://github.com/GudupaoSpark/code-fix/blob/main{{ page.url }}">在 GitHub 上编辑</a>
 {% endblock %}
