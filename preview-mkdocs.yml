@@ -1,0 +1,57 @@
+site_name: Code fix Preview
+
+repo_url: https://github.com/GudupaoSpark/code-fix
+repo_name: Github Repo
+
+plugins:
+  - search
+  - include_dir_to_nav
+
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  icon:
+    repo: fontawesome/brands/github
+  language: zh
+  logo: cod-fix-logo23.svg
+  favicon: cod-fix-logo23.svg
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - content.code.copy
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+
+copyright: 此页面仅用于预览 Pr 带来的更改，Gudupao 不为此页面的任何内容负责
