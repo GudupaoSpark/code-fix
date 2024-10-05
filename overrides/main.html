@@ -1,19 +1,4 @@
 {% extends "base.html" %}
-<script>
-        function copyToClip(content, message) {
-            var aux = document.createElement("input"); 
-            aux.setAttribute("value", content); 
-            document.body.appendChild(aux); 
-            aux.select();
-            document.execCommand("copy"); 
-            document.body.removeChild(aux);
-            if (message == null) {
-                alert("复制成功");
-            } else{
-                alert(message);
-            }
-        }
-</script>
 {% block content %}
 <a href="https://github.com/GudupaoSpark/code-fix/blob/main/docs/{{ "index" if page.url.strip("/")=="" else page.url.strip("/") }}.md"><img alt="Static Badge" src="https://img.shields.io/badge/Raw-Edit-blue?style=for-the-badge&logo=github&color=%23334191"></a>
 {{ super() }}
