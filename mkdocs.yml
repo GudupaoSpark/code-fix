@@ -15,6 +15,8 @@ extra_javascript:
   - 'js/baidu-tongji.js'
   - 'js/copy.js'
 
+extra_css:
+    - "stylesheets/extra.css"
 
 theme:
   custom_dir: overrides
