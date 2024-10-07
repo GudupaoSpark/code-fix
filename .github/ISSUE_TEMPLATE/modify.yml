@@ -1,0 +1,28 @@
+name: 修改页面
+description: 修改页面
+labels: [modify | 修改页面]
+body:
+  - type: markdown
+    attributes:
+      value: 感谢您的贡献，请根据该表单填写页面信息。
+  - type: input
+    id: url
+    attributes:
+      label: 路径
+      description: 页面的路径（如 `/Npm/Err` 免去 `/docs`）
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: 原因
+      description: 你修改此文件的原因
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: 内容
+      description: 修改后的正文内容
+    validations:
+      required: true
