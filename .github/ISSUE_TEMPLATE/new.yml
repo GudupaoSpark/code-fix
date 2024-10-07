@@ -9,7 +9,7 @@ body:
     id: url
     attributes:
       label: 路径
-      description: 页面的路径（如 `/Npm/Err`）
+      description: 页面的路径（如 `/Npm/Err` 免去 `/docs`）
     validations:
       required: true
   - type: textarea
