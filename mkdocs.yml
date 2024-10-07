@@ -10,6 +10,8 @@ plugins:
       repository: GudupaoSpark/code-fix
       branch: main
 
+nav:
+  - Home: README.md
       
 extra_javascript:
   - 'js/baidu-tongji.js'
