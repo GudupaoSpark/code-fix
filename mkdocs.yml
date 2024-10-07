@@ -9,9 +9,6 @@ plugins:
   - git-committers:
       repository: GudupaoSpark/code-fix
       branch: main
-
-nav:
-  - Home: index.md
       
 extra_javascript:
   - 'js/baidu-tongji.js'
