@@ -1,0 +1,6 @@
+blank_issues_enabled: true
+
+contact_links:
+  - name: PR
+    url: https://github.com/GudupaoSpark/code-fix/pulls
+    about: 通过 PR 提交更改
