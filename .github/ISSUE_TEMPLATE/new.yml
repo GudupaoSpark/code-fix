@@ -1,0 +1,21 @@
+name: 添加页面
+description: 添加页面
+labels: [new-page | 添加页面]
+body:
+  - type: markdown
+    attributes:
+      value: 感谢您的贡献，请根据该表单填写页面信息。
+  - type: input
+    id: url
+    attributes:
+      label: 路径
+      description: 页面的路径（如 `/Npm/Err`）
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: 内容
+      description: 正文
+    validations:
+      required: true
