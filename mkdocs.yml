@@ -54,7 +54,7 @@ theme:
 
 markdown_extensions:
   - pymdownx.arithmatex:
-    generic: true
+      generic: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
