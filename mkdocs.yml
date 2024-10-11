@@ -11,6 +11,8 @@ plugins:
       branch: main
       
 extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
   - 'js/baidu-tongji.js'
   - 'js/copy.js'
 
@@ -49,7 +51,10 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - content.code.copy
+
 markdown_extensions:
+  - pymdownx.arithmatex:
+    generic: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
